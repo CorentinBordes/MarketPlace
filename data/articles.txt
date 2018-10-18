@@ -9,3 +9,11 @@
 9 | ours en peluche | 2 | 100% coton | 15.0 | teddy-bear.jpg
 10 | barby | 2 | poupée barby en plastique | 10.0 | doll.jpg
 11 | R2D2 | 2 | Robot R2D2 electyronique | 45.0 | r2d2.jpg
+12 | Robot | 2 | figurine robot collector | 20.0 | robot.png
+13 | Canarie | 2 | Ensemble de canarie jaune | 10.0 | canari.jpg
+14 | Mac Book Air | 3 | Mac book air 13" neuf | 800.0 | MacBookAir.jpg
+15 | iMac | 3 | iMac Apple 24" neuf | 1000.0 | iMac.jpg
+16 | Ipad 3 | 3 | Ipad 3 32Go | 450.0 | Ipad.jpg
+17 | Clef USB | 3 | clef USB 32Go | 20.0 | USB.jpg
+18 | Souris USB | 3 | souris connectique USB | 10.0 | mouse.png
+19 | Clavier USB | 3 | Clavier connectique USB | 15.0 | keyboard.jpg
