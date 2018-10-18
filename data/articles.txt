@@ -1,2 +1,4 @@
-1 | perceuse | 1 | 50W 22A | 200.0 | perceuse.jpg
-2 | voiture  | 2 | voiture radio téélcommandée | 30.0 | voituretelecommande.jpg
+1 | perceuse | 1 | 50W 22A | 200.0 | perceuse.png
+2 | voiture  | 2 | voiture radio téélcommandée | 30.0 | voitureradiotelecommande.jpg
+3 | tourne vis| 1 | plastique et metal chinois| 5.0 |tournevis.png
+4 | boite à outils | 1 | Made in china | 40.0 | toolbox.png
