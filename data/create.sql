@@ -12,3 +12,6 @@ CREATE TABLE article (
 	image TEXT,
 	FOREIGN KEY(categorie) REFERENCES categorie(id)
 );
+
+--table personne
+--table panier
