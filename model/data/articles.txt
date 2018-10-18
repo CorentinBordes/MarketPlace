@@ -1,2 +1,2 @@
-1 | perceuse | 1 | 50W 22A | perceuse.jpg
-2 | voiture  | 2 | voiture radio téélcommandée | voituretelecommande.jpg
+1 | perceuse | 1 | 50W 22A | 200.0 | perceuse.jpg
+2 | voiture  | 2 | voiture radio téélcommandée | 30.0 | voituretelecommande.jpg

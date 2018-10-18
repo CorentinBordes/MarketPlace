@@ -8,6 +8,7 @@ CREATE TABLE article (
 	intitulé TEXT,
 	categorie INTEGER,
 	info TEXT,
+    prix float,
 	image TEXT,
 	FOREIGN KEY(categorie) REFERENCES categorie(id)
 );
