@@ -34,24 +34,34 @@
       <body>
 
           <!-- panel gauche avec les catégories -->
-          <select name="menu catégories">
+          <nav>
+              <?php
+                  foreach ($GLOBALS["categories"] as $value) {
+                      echo'<a href="" >'.$value->nom.'</a> <br>';
+                  }
 
-            <!-- menu déroulant des catégories a récupérer et créer des "options" -->
-            <?php
+               ?>
+          </nav>
 
 
-             ?>
+            <section>
+                <!-- liste de tout les produits -->
 
-          </select>
-          <!-- liste de tout les produits -->
-
-                <!-- afficher des produits "tendances" -->
+                      <!-- afficher des produits "tendances" -->
                 <?php
 
+                    foreach ($GLOBALS["articlesEnReduction"] as $value) {
+                        echo $value->afficherVueArticleSingulier();
+                    }
                     // image/nom/prix toutes les contraintes
 
 
                  ?>
+            </section>
+
+
+
+
 
 
 

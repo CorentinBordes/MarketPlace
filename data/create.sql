@@ -10,7 +10,9 @@ CREATE TABLE article (
 	info TEXT,
     prix float,
 	image TEXT,
+	reduction float,
 	FOREIGN KEY(categorie) REFERENCES categorie(id)
+
 );
 
 --table personne

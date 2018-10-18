@@ -40,6 +40,14 @@
             return $result;
         }
 
+        function getArticleEnReduc() : array {
+            $req="select * from article where reduction != 0.0;";
+            $sth=$this->db->query($req);
+            $result=$sth->fetchAll(PDO::FETCH_CLASS,'article');
+            return $result;
+        }
+
+
     }
 
     ?>
