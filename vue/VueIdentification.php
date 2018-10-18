@@ -3,7 +3,7 @@
       <head>
             <title>date.html</title>
             <meta charset="utf-8">
-            <link rel="stylesheet" type="text/css" href="StylePanier.css">
+            <link rel="stylesheet" type="text/css" href="StyleIdentification.css">
       </head>
 
       <header>
@@ -23,11 +23,15 @@
 
       <body>
 
-        <!-- Panier Utilisateur : Liste Articles (from BD) -->
+        <!-- login -->
 
-        <!-- Payer -->
+        <!-- mdp -->
 
-        <!-- " Articles même catégories " -->
+        <!-- valider -->
+
+        <!-- "se rappeler de moi" -->
+
+        <!-- créer un compte -->
 
     </body>
 </html>

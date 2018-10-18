@@ -3,7 +3,7 @@
       <head>
             <title>date.html</title>
             <meta charset="utf-8">
-            <link rel="stylesheet" type="text/css" href="StylePanier.css">
+            <link rel="stylesheet" type="text/css" href="StylePayer.css">
       </head>
 
       <header>
@@ -23,11 +23,13 @@
 
       <body>
 
-        <!-- Panier Utilisateur : Liste Articles (from BD) -->
+        <!-- afficher liste article et prix total -->
 
-        <!-- Payer -->
+        <!-- adresse de livraison -->
 
-        <!-- " Articles même catégories " -->
+        <!-- numéro de carte -->
+
+        <!-- confirmer paiment -->
 
     </body>
 </html>
