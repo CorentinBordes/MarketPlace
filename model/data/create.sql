@@ -1,3 +1,8 @@
+CREATE TABLE categorie (
+	id INTEGER PRIMARY KEY,
+	nom TEXT
+);
+
 CREATE TABLE article (
 	ref INTEGER PRIMARY KEY,
 	intitulé TEXT,
@@ -5,8 +10,4 @@ CREATE TABLE article (
 	info TEXT,
 	image TEXT,
 	FOREIGN KEY(categorie) REFERENCES categorie(id)
-);
-CREATE TABLE categorie (
-	id INTEGER PRIMARY KEY,
-	nom TEXT
 );
