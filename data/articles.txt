@@ -17,3 +17,4 @@
 17 | Clef USB | 3 | clef USB 32Go | 20.0 | USB.jpg
 18 | Souris USB | 3 | souris connectique USB | 10.0 | mouse.png
 19 | Clavier USB | 3 | Clavier connectique USB | 15.0 | keyboard.jpg
+20 | Ecran d'ordinateur | 3 | Ecran 30" hdmi | 300.0 | screen.png

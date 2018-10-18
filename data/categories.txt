@@ -1,3 +1,10 @@
 1 | Outillage
 2 | Jouets
 3 | bureautique
+4 | livre
+5 | Vetements
+6 | sport
+7 | auto et moto
+8 | maison
+9 | santé et bien-etre
+10 | musique et DVD
