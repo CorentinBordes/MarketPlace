@@ -3,7 +3,7 @@
       <head>
             <title>date.html</title>
             <meta charset="utf-8">
-            <link rel="stylesheet" type="text/css" href="styleAccueil.css">
+            <link rel="stylesheet" type="text/css" href="/styleAccueil.css">
       </head>
 
       <header>
@@ -18,15 +18,15 @@
             </p>
          <!-- boutons d'accueil -->
             <p>
-              <a href="http://www-etu-info.iut2.upmf-grenoble.fr/~bordesc/ProgWeb/MarketPlace/vue/VueAccueil.php"> Accueil </a>
+              <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
             </p>
          <!-- Identifiez-vous -->
             <p>
-              <a href="http://www-etu-info.iut2.upmf-grenoble.fr/~bordesc/ProgWeb/MarketPlace/vue/VueIdentification.php"> Identifiez-vous ! </a>
+              <a href="../controleur/afficherSIdentifier.ctrl.php"> Identifiez-vous ! </a>
             </p>
          <!-- Panier -->
              <p>
-               <a href="http://www-etu-info.iut2.upmf-grenoble.fr/~bordesc/ProgWeb/MarketPlace/vue/VuePanier.php"> Votre Panier </a>
+               <a href=""> Votre Panier </a>
              </p>
 
       </header>
@@ -37,7 +37,7 @@
           <nav>
               <?php
                   foreach ($GLOBALS["categories"] as $value) {
-                      echo'<a href="" >'.$value->nom.'</a> <br>';
+                      echo'<a href="afficherCategorie.ctrl.php?id='.$value->id.'" >'.$value->nom.'</a> <br>';
                   }
 
                ?>

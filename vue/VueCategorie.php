@@ -22,7 +22,13 @@
       </header>
 
       <body>
-
+          <?php
+            foreach ($GLOBALS["categorie"] as $value) {
+                echo '<article>';
+                echo $value->afficherVueArticleSingulier();
+                echo'</article>';
+            }
+           ?>
         <!-- affiche nom catégorie -->
 
         <!-- affiche la liste des produits selon la catégorie -->

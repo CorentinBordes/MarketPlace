@@ -15,5 +15,12 @@ CREATE TABLE article (
 
 );
 
+CREATE TABLE clients (
+	nom varchar(100),
+	prenom varchar(100),
+	adresse varchar(100),
+	password varchar(100)
+);
+
 --table personne
 --table panier

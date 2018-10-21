@@ -4,4 +4,5 @@
     $GLOBALS["articlesEnReduction"]=$dao->getArticleEnReduc();
     //var_dump($GLOBALS["articlesEnReduction"]);
     include("../vue/VueAccueil.php");
+    //include("../vue/styleAccueil.css");
  ?>

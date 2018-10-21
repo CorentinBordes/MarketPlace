@@ -22,6 +22,13 @@
       </header>
 
       <body>
+          <fieldset>
+              <form class="" action="index.html" method="post">////////////////// T'en est la #emile
+                  <input type="text" name="" value="">
+                  <input type="text" name="" value="">
+                  <input type="text" name="" value="">
+              </form>
+          </fieldset>
 
         <!-- login -->
 
