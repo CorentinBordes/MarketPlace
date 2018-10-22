@@ -23,17 +23,18 @@
             <p>
               <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
             </p>
+         <?php
+            if(isset($GLOBALS["identificateur"])){
+                echo '<a href="afficherPanier.ctrl.php"> Panier</a>';
+            }else{
+                echo'<a href="../controleur/afficherSIndentifier.ctrl.php"> Identifiez-vous ! </a>';
+            }
+        ?>
 
-         <!-- Identifiez-vous -->
-            <p>
-              <a href="../controleur/afficherSIdentifier.ctrl.php"> Identifiez-vous ! </a>
-            </p>
 
-         <!-- Panier -->
-             <p>
-               <a href=""> Votre Panier </a>
-             </p>
-        </div>
+
+
+
       </header>
 
       <body>

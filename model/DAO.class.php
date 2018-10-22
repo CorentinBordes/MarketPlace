@@ -1,7 +1,8 @@
 <?php
 
-    require_once("../model/categorie.class.php");
-    require_once("../model/article.class.php");
+    require_once('../model/categorie.class.php');
+    require_once('../model/article.class.php');
+    require_once('../model/clients.class.php');
 
     // Creation de l'unique objet DAO
     $dao = new DAO();
@@ -47,16 +48,14 @@
             return $result;
         }
 
-        function verifIdentification($id,$pasword) : boolean {
-            $req="select * from clients where password=$password and $id=id;";
+        function verifIdentification($id,$password) {
+            $req="select * from clients where password=\"$password\" and \"$id\"=id;";
+            var_dump($req);
             $sth=$this->db->query($req);
+            var_dump($sth);
             $resultFetch=$sth->fetchAll(PDO::FETCH_CLASS,'clients');
-            if(isset($resultFetch)){
-                $result=true;
-            }else{
-                $result=false;
-            }
-            return $result;
+            var_dump($resultFetch);
+            return isset($resultFetch[0]);
         }
 
     }
