@@ -3,9 +3,37 @@ img{
     height: 400px;
 }
 article{
-    
+
 }
 
 body{
 
+}
+
+h1{
+  color : white;
+}
+
+#recherche {
+  color : white;
+}
+
+#conteneur1 {
+  display: flex;
+  background-color: #31333D;
+  justify-content: space-between;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-family: sans-serif;
+}
+
+#conteneur2 {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: #32CD32;
+  color : #31333D;
+}
+
+#conteneur2 > p{
+  margin: 10 px;
 }
