@@ -48,14 +48,10 @@
             return $result;
         }
 
-<<<<<<< HEAD
-        function verifIdentification($id,$password): boolean {
-            $req="select * from clients where password=$password and $id=id;";
-=======
+
         function verifIdentification($id,$password) {
             $req="select * from clients where password=\"$password\" and \"$id\"=id;";
             var_dump($req);
->>>>>>> 6aa63672dc559cd0fe5023c2eb3f8b48c942d2dc
             $sth=$this->db->query($req);
             var_dump($sth);
             $resultFetch=$sth->fetchAll(PDO::FETCH_CLASS,'clients');
