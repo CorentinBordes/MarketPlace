@@ -1,14 +1,35 @@
 img{
-    width: 400px;
-    height: 400px;
+    max-width: 200px;
+    height: auto;
+
 }
 article{
+    text-align: center;
 
 }
 
-body{
-
+footer{
+    display: flex;
+    flex: wrap;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    width: 5px;
+    height: 5px;
+    border: 2px solid black;
+}
+
+a:hover{
+    text-decoration: none;
+    color: white;
+    background-color: grey;
+    width: 5px;
+    height: 5px;
+}
+
 
 h1{
   color : white;
@@ -36,4 +57,13 @@ h1{
 
 #conteneur2 > p{
   margin: 10 px;
+}
+section{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+section>article{
+    width: 300px;
+    height: 300px;
 }

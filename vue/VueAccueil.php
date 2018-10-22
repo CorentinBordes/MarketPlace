@@ -5,7 +5,7 @@
             <meta charset="utf-8">
             <link rel="stylesheet" type="text/css" href="../vue/styleAccueil.css">
       </head>
-
+      <body>
       <header>
         <!-- Titre/logo -->
         <div id=conteneur1>
@@ -31,15 +31,8 @@
             }
         ?>
 
-
-
-
-
       </header>
-
-      <body>
-
-          <!-- panel gauche avec les catégories -->
+      <footer>
           <nav>
               <?php
                   foreach ($GLOBALS["categories"] as $value) {
@@ -67,6 +60,9 @@
                  ?>
             </section>
 
+
+      </footer>
+          <!-- panel gauche avec les catégories -->
 
 
 
