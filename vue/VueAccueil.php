@@ -7,16 +7,19 @@
       </head>
 
       <header>
-
         <!-- Titre/logo -->
+        <div id=conteneur1>
             <h1>Amazonie</h1>
 
         <!-- barre de recherche -->
-            <p>
+            <p id=recherche>
               <label for="BR">Recherche : </label>
               <input type="text" id="BR" name="BarreRecherche">
             </p>
+        </div>
+
          <!-- boutons d'accueil -->
+         <div id=conteneur2>
             <p>
               <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
             </p>
