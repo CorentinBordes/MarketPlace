@@ -19,6 +19,7 @@ CREATE TABLE clients (
 	nom varchar(100),
 	prenom varchar(100),
 	adresse varchar(100),
+	id varchar(100),
 	password varchar(100)
 );
 

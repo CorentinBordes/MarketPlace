@@ -23,10 +23,10 @@
 
       <body>
           <fieldset>
-              <form class="" action="index.html" method="post">////////////////// T'en est la #emile
-                  <input type="text" name="" value="">
-                  <input type="text" name="" value="">
-                  <input type="text" name="" value="">
+              <form class="" action="../controleur/traitementIdentification.ctrl.php" method="post">
+                  <input type="text" name="id" value="emile">
+                  <input type="password" name="password" value="emiliobe">
+                  <input type="submit" value="valider">
               </form>
           </fieldset>
 

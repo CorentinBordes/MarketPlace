@@ -3,7 +3,7 @@
       <head>
             <title>date.html</title>
             <meta charset="utf-8">
-            <link rel="stylesheet" type="text/css" href="/styleAccueil.css">
+            <link rel="stylesheet" type="text/css" href="../vue/styleAccueil.css">
       </head>
 
       <header>

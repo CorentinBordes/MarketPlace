@@ -47,6 +47,17 @@
             return $result;
         }
 
+        function verifIdentification($id,$pasword) : boolean {
+            $req="select * from clients where password=$password and $id=id;";
+            $sth=$this->db->query($req);
+            $resultFetch=$sth->fetchAll(PDO::FETCH_CLASS,'clients');
+            if(isset($resultFetch)){
+                $result=true;
+            }else{
+                $result=false;
+            }
+            return $result;
+        }
 
     }
 
