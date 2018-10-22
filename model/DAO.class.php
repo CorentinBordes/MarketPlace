@@ -51,11 +51,8 @@
 
         function verifIdentification($id,$password) {
             $req="select * from clients where password=\"$password\" and \"$id\"=id;";
-            var_dump($req);
             $sth=$this->db->query($req);
-            var_dump($sth);
             $resultFetch=$sth->fetchAll(PDO::FETCH_CLASS,'clients');
-            var_dump($resultFetch);
             return isset($resultFetch[0]);
         }
 

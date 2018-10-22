@@ -5,6 +5,8 @@
     $boolIdentification=$dao->verifIdentification($id,$password);
     if($boolIdentification){ //personne presente dans la table client
         $GLOBALS['identificateur']=[true,$id,$password];
-        include('../controleur/afficherAccueil.php');
+        include('../controleur/afficherAccueil.ctrl.php');
+    }else{
+        include('../vue/VueEchecDeLAuthentification.php');
     }
  ?>
