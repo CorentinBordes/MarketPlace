@@ -26,28 +26,28 @@
 
         // Accès à toutes les catégories
         // Retourne une table d'objets de type Categorie
-        function getAllCat() : array {
+        function getAllCat(): array {
             $req="Select * from categorie;";
             $sth=$this->db->query($req);
             $result=$sth->fetchAll(PDO::FETCH_CLASS,'categorie');
             return $result;
         }
 
-        function getArticle(int $id) : array {
+        function getArticle(int $id): array {
             $req="Select * from article where categorie=$id;";
             $sth=$this->db->query($req);
             $result=$sth->fetchAll(PDO::FETCH_CLASS,'article');
             return $result;
         }
 
-        function getArticleEnReduc() : array {
+        function getArticleEnReduc(): array {
             $req="select * from article where reduction != 0.0;";
             $sth=$this->db->query($req);
             $result=$sth->fetchAll(PDO::FETCH_CLASS,'article');
             return $result;
         }
 
-        function verifIdentification($id,$pasword) : boolean {
+        function verifIdentification($id,$password): boolean {
             $req="select * from clients where password=$password and $id=id;";
             $sth=$this->db->query($req);
             $resultFetch=$sth->fetchAll(PDO::FETCH_CLASS,'clients');
@@ -59,6 +59,12 @@
             return $result;
         }
 
+
+        //fonction d'ajout d'un produit dans le panier
+        function ajouterPanier($id,$password,$produit) {
+            $req="INSERT INTO panier VALUES ('$id','$produit')";
+            PDO::exec($req);
+        }
     }
 
     ?>

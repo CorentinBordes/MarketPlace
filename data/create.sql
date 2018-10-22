@@ -14,14 +14,19 @@ CREATE TABLE article (
 	FOREIGN KEY(categorie) REFERENCES categorie(id)
 
 );
-
+-
 CREATE TABLE clients (
 	nom varchar(100),
 	prenom varchar(100),
 	adresse varchar(100),
 	id varchar(100),
-	password varchar(100)
+	password varchar(100),
+	administrateur boolean
 );
 
---table personne
---table panier
+CREATE TABLE panier (
+	id varchar(100),
+	listeObjet INTEGER,
+	FOREIGN KEY(id) REFERENCES clients(id),
+	FOREIGN KEY(liste) REFERENCES article(ref)
+);
