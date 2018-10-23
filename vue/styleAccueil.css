@@ -13,19 +13,30 @@ footer{
     flex: wrap;
 }
 
+footer>nav{
+  background-color: #FF8C00;
+}
+
+footer>nav>div{
+  width: 160px;
+  height: 20px;
+  text-decoration: none;
+  color: white;
+  background-color: #31333D;
+  border : 2px solid grey;
+}
+
 a{
     text-decoration: none;
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: #31333D;
     margin: 5px;
-    border: 2px solid black;
 }
 
 a:hover{
     text-decoration: none;
-    color: white;
-    background-color: grey;
-    margin: 5px;
+    color: #31333D;
+    background-color: white;
 }
 
 
@@ -53,15 +64,23 @@ h1{
   color : #31333D;
 }
 
-#conteneur2 > p{
-  margin: 10 px;
-}
 section{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 section>article{
-    width: 300px;
-    height: 300px;
+  margin : 15px;
+  width: 300px;
+  height: 300px;
+  border: solid 4px #31333D;
+  border-radius: 5px;
+  border-style: ridge;
+}
+
+#hautPage{
+  position: fixed;
+  bottom : 10px;
+  right: -100px;
+  opacity: 0.5;
 }

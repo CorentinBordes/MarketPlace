@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
       <head>
-            <title>date.html</title>
+            <title>EasyShop.fr</title>
             <meta charset="utf-8">
             <link rel="stylesheet" type="text/css" href="../vue/styleAccueil.css">
+
+            <link rel="shortcut icon" type="image/ico" href="/data/imageSite/favicon.ico"/>
       </head>
+
       <body>
+        <!-- Bouton haut de page script -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script>
+          jQuery(function(){
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 200 ) {
+                        $('#hautPage').css('right','10px');
+                        } else {
+                            $('#hautPage').removeAttr( 'style' );
+                          }
+
+                });
+            });
+          });
+        </script>
+
       <header>
         <!-- Titre/logo -->
         <div id=conteneur1>
-            <h1>Amazonie</h1>
+            <h1>EasyShop</h1>
 
         <!-- barre de recherche -->
             <p id=recherche>
@@ -30,13 +50,15 @@
                 echo'<a href="../controleur/afficherSIndentifier.ctrl.php"> Identifiez-vous ! </a>';
             }
         ?>
-
       </header>
+
       <footer>
           <nav>
               <?php
                   foreach ($GLOBALS["categories"] as $value) {
-                      echo'<a href="afficherCategorie.ctrl.php?id='.$value->id.'" >'.$value->nom.'</a> <br>';
+                      echo'<div>';
+                        echo'<a href="afficherCategorie.ctrl.php?id='.$value->id.'" >'.$value->nom.'</a> <br>';
+                      echo'</div>';
                   }
 
                ?>
@@ -60,7 +82,9 @@
                  ?>
             </section>
 
-
+            <div id="hautPage">
+              <a href="#top"><img src="/data/imageSite/hautPage.jpg"/></a>
+            </div>
       </footer>
           <!-- panel gauche avec les catégories -->
 
