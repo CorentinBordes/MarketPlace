@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+<?php
+var_dump($GLOBALS['identificateur']);
+ ?>
 <html lang="fr">
       <head>
             <title>EasyShop.fr</title>
             <meta charset="utf-8">
             <link rel="stylesheet" type="text/css" href="../vue/styleAccueil.css">
 
-            <link rel="shortcut icon" type="image/ico" href="/data/imageSite/favicon.ico"/>
+            <link rel="shortcut icon" type="image/ico" href="../data/imageSite/favicon.ico"/>
       </head>
 
       <body>
@@ -83,7 +86,7 @@
             </section>
 
             <div id="hautPage">
-              <a href="#top"><img src="/data/imageSite/hautPage.jpg"/></a>
+              <a href="#top"><img src="../data/imageSite/hautPage.jpg"/></a>
             </div>
       </footer>
           <!-- panel gauche avec les catégories -->

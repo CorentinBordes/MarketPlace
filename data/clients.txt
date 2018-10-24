@@ -1,1 +1,1 @@
-Bergin|Emile|7 rue marcelle boninn 38000 Grenoble|emile|emiliobe
+Bergin|Emile|7 rue marcelle boninn 38000 Grenoble|emile|emiliobe|true
