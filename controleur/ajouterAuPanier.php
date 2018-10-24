@@ -1,7 +1,8 @@
 <?php
-include_once("../model/DAO.class.php");
+include_once('../model/DAO.class.php');
 for ($i=0; $i < $_POST['nombreDArticle'] ; $i++) {
     $dao->ajouterPanier($_POST['refArticle'],$_POST['idClient']);
 }
-include("../vue/VueIdentification.php");
- ?>
+$idClient=$_POST['idClient'];
+$GLOBALS["panierClient"]= $dao->getPanier($idClient);
+include('../vue/VuePanier.php'); ?>

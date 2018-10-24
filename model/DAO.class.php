@@ -73,9 +73,14 @@
 
         //fonction d'ajout d'un produit dans le panier
         function ajouterPanier($produit,$idClient) {
-            var_dump($this);
             $req="INSERT INTO panier VALUES ((Select max(id)+1 from panier),0,\"$idClient\",$produit);";
-            var_dump($req);
+            $this->db->exec($req);
+        }
+
+        //Quand le client commande il faut vider le panier
+        function viderLePanier($idClient) {
+            var_dump($this);
+            $req="Delete from panier where idClient=\"$idClient\";";
             $this->db->exec($req);
         }
 

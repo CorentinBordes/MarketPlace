@@ -67,7 +67,7 @@ require_once('../vue/function.vue.php');
               <?php
                   foreach ($GLOBALS["categories"] as $value) {
                       echo'<div>';
-                        echo'<a href="afficherCategorie.ctrl.php?id='.$value->id.'" >'.$value->nom.'</a> <br>';
+                        echo'<a href="afficherCategorie.ctrl.php?idCate='.$value->id.'" >'.$value->nom.'</a> <br>';
                       echo'</div>';
                   }
 

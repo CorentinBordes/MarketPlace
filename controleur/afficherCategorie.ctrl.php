@@ -1,6 +1,5 @@
 <?php
     include_once("../model/DAO.class.php");
-    $id=$_GET["id"];
-    $GLOBALS["categorie"]= $dao->getArticle($id);
+    $GLOBALS["categorie"]= $dao->getArticle($_GET["idCate"]);
     include("../vue/VueCategorie.php");
  ?>
