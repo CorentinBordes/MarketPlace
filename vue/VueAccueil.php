@@ -44,11 +44,18 @@ var_dump($GLOBALS['identificateur']);
          <!-- boutons d'accueil -->
          <div id=conteneur2>
             <p>
-              <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
+                <?php
+                    if(isset($GLOBALS["identificateur"])){
+                        echo '<a href="../controleur/afficherAccueil.ctrl.php?idClient='.$GLOBALS["identificateur"].'">Accueil</a>'; //On a pas eu le temps de le faire en methode post
+                    }else{
+                        echo'<a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>';
+                    }
+                ?>
+
             </p>
          <?php
             if(isset($GLOBALS["identificateur"])){
-                echo '<a href="afficherPanier.ctrl.php"> Panier</a>';
+                echo '<a href="afficherPanier.ctrl.php?idClient='.$GLOBALS["identificateur"].'"> Panier</a>';
             }else{
                 echo'<a href="../controleur/afficherSIndentifier.ctrl.php"> Identifiez-vous ! </a>';
             }
