@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-var_dump($GLOBALS['identificateur']);
+require_once('../vue/function.vue.php');
  ?>
 <html lang="fr">
       <head>
@@ -83,7 +83,18 @@ var_dump($GLOBALS['identificateur']);
 
                     foreach ($GLOBALS["articlesEnReduction"] as $value) {
                         echo '<article>';
+<<<<<<< HEAD
                           echo $value->afficherVueArticleSingulier();
+=======
+                        if(isset($GLOBALS["identificateur"])){
+                            echo afficherVueArticleSingulier($value,$GLOBALS["identificateur"]);
+                        }elseif (isset($_GET['idClient'])) {
+                            echo afficherVueArticleSingulier($value,$_GET['idClient']);
+                        }else{
+                            echo afficherVueArticleSingulier($value);
+                        }
+
+>>>>>>> b67417f70f30dd38d6c2dacd9296e62fede7c081
                         echo'</article>';
                     }
                     // image/nom/prix toutes les contraintes

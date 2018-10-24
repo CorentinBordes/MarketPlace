@@ -10,7 +10,7 @@
         public $image;     // Nom du fichier image
         public $reduction;
 
-        function afficherVueArticleSingulier(): string {
+        /*function afficherVueArticleSingulier(): string {
             $result='<img src="../data/img/'.$this->image.'" alt="image correspondant a l\'objet">';
             $result .= '<p><b>'.$this->intitulé.'</b></p>';
             $result .=  '<p>'.$this->info.'</p>';
@@ -23,12 +23,13 @@
                             Nombre :<br>
                             <input type="text" name="nombreDArticle" value="1"><br>
                             <input type="hidden" name="refArticle" value="'.$this->ref.'">
+
                             <input type="submit" value="Ajouter au panier">
                             </form>
                 '  ;
             }
             return $result;
-        }
+        }*/
     }
 
 ?>

@@ -14,7 +14,7 @@
         // L'objet local PDO de la base de donnée
         private $db;
         // Le type, le chemin et le nom de la base de donnée
-        private $database = 'sqlite:../data/DB.db';
+        private $database = 'sqlite:../data/DB.db'; //renommer dbpath
 
         // Constructeur chargé d'ouvrir la BD
         function __construct() {
@@ -65,10 +65,12 @@
         }
 
         //fonction d'ajout d'un produit dans le panier
-        /*function ajouterPanier($id,$password,$produit) {
-            $req="INSERT INTO panier VALUES ('$id','$produit')";
-            PDO::exec($req);
-        }*/
+        function ajouterPanier($produit,$idClient) {
+            var_dump($this);
+            $req="INSERT INTO panier VALUES ((Select max(id)+1 from panier),0,\"$idClient\",$produit);";
+            var_dump($req);
+            $this->db->exec($req);
+        }
 
 
     }
