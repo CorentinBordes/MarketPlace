@@ -52,10 +52,13 @@
               <?php
                   foreach ($GLOBALS["panierClient"] as $value) {
                       echo'<div>';
-                        echo $value->afficherVueArticleSingulier();
+                        var_dump($value);/*a supprimer*/
+                        print("la ref de l'article est : $value->refArticle");
+                        $ref=$value->refArticle;
+                        $article=getStatsArticle($ref);/*l'article en cours avec toutes ses caractéristiques*/
+                        echo $article->afficherVueArticleSingulier();
                       echo'</div>';
                   }
-
                ?>
           </nav>
       </footer>

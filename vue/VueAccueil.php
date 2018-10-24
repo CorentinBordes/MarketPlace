@@ -83,7 +83,7 @@ var_dump($GLOBALS['identificateur']);
 
                     foreach ($GLOBALS["articlesEnReduction"] as $value) {
                         echo '<article>';
-                        echo $value->afficherVueArticleSingulier();
+                          echo $value->afficherVueArticleSingulier();
                         echo'</article>';
                     }
                     // image/nom/prix toutes les contraintes
