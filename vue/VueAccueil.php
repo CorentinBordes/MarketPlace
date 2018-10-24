@@ -81,22 +81,18 @@ require_once('../vue/function.vue.php');
                       <!-- afficher des produits "tendances" -->
                 <?php
 
-                    foreach ($GLOBALS["articlesEnReduction"] as $value) {
-                        echo '<article>';
-<<<<<<< HEAD
-                          echo $value->afficherVueArticleSingulier();
-=======
-                        if(isset($GLOBALS["identificateur"])){
-                            echo afficherVueArticleSingulier($value,$GLOBALS["identificateur"]);
-                        }elseif (isset($_GET['idClient'])) {
-                            echo afficherVueArticleSingulier($value,$_GET['idClient']);
-                        }else{
-                            echo afficherVueArticleSingulier($value);
-                        }
+                  foreach ($GLOBALS["articlesEnReduction"] as $value) {
+                      echo '<article>';
+                      if(isset($GLOBALS["identificateur"])){
+                          echo afficherVueArticleSingulier($value,$GLOBALS["identificateur"]);
+                      }elseif (isset($_GET['idClient'])) {
+                          echo afficherVueArticleSingulier($value,$_GET['idClient']);
+                      }else{
+                          echo afficherVueArticleSingulier($value);
+                      }
 
->>>>>>> b67417f70f30dd38d6c2dacd9296e62fede7c081
-                        echo'</article>';
-                    }
+                      echo'</article>';
+                  }
                     // image/nom/prix toutes les contraintes
 
 

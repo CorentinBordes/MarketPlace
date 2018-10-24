@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+require_once('../vue/function.vue.php');
+ ?>
 <html lang="fr">
   <head>
       <title>EasyShop.fr</title>
@@ -52,11 +55,9 @@
               <?php
                   foreach ($GLOBALS["panierClient"] as $value) {
                       echo'<div>';
-                        var_dump($value);/*a supprimer*/
-                        print("la ref de l'article est : $value->refArticle");
                         $ref=$value->refArticle;
-                        $article=getStatsArticle($ref);/*l'article en cours avec toutes ses caractéristiques*/
-                        echo $article->afficherVueArticleSingulier();
+                        $article=$dao->getArticleSingulier($ref);/*l'article en cours avec toutes ses caractéristiques*/
+                        echo afficherVueArticleSingulierPanier($article[0]);
                       echo'</div>';
                   }
                ?>

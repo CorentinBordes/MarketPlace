@@ -35,6 +35,13 @@
             return $result;
         }
 
+        function getArticleSingulier(int $ref): array {
+            $req="Select * from article where ref=$ref;";
+            $sth=$this->db->query($req);
+            $result=$sth->fetchAll(PDO::FETCH_CLASS,'article');
+            return $result;
+        }
+
         function getArticle(int $id): array {
             $req="Select * from article where categorie=$id;";
             $sth=$this->db->query($req);

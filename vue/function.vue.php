@@ -1,5 +1,6 @@
 <?php
 function afficherVueArticleSingulier($article,$idClient= NULL): string {
+    //var_dump($article->image);
     $result='<img src="../data/img/'.$article->image.'" alt="image correspondant a l\'objet">';
     $result .= '<p><b>'.$article->intitulé.'</b></p>';
     $result .=  '<p>'.$article->info.'</p>';
@@ -26,6 +27,20 @@ function afficherVueArticleSingulier($article,$idClient= NULL): string {
                         </form>';
         }
 
+    }
+    return $result;
+}
+
+function afficherVueArticleSingulierPanier($article): string {
+  //var_dump($article->image);
+    $result='<img src="../data/img/'.$article->image.'" alt="image correspondant a l\'objet">';
+    $result .= '<p><b>'.$article->intitulé.'</b></p>';
+    $result .=  '<p>'.$article->info.'</p>';
+    if($article->reduction==0){
+        $result .=  '<p>Prix : '.$article->prix.'</p>';
+    }else{
+        $prixCal = $article->prix * (1-($article->reduction/100));
+        $result .=  '<p>Prix : '.$prixCal.'</p>';
     }
     return $result;
 }
