@@ -58,7 +58,7 @@
         }
 
         function getPanier($idClient): array {
-            $req="Select * from panier where $idClient=idClient;";
+            $req="Select * from panier where \"$idClient\"=idClient;";
             $sth=$this->db->query($req);
             $result=$sth->fetchAll(PDO::FETCH_CLASS,'panier');
             return $result;
