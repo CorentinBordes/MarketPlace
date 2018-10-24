@@ -3,6 +3,7 @@
     require_once('../model/categorie.class.php');
     require_once('../model/article.class.php');
     require_once('../model/clients.class.php');
+    require_once('../model/panier.class.php')
 
     // Creation de l'unique objet DAO
     $dao = new DAO();
@@ -56,12 +57,20 @@
             return isset($resultFetch[0]);
         }
 
+        function getPanier($idClient): array {
+            $req="Select * from panier where $idClient=idClient;";
+            $sth=$this->db->query($req);
+            $result=$sth->fetchAll(PDO::FETCH_CLASS,'panier');
+            return $result;
+        }
 
         //fonction d'ajout d'un produit dans le panier
-        function ajouterPanier($id,$password,$produit) {
+        /*function ajouterPanier($id,$password,$produit) {
             $req="INSERT INTO panier VALUES ('$id','$produit')";
             PDO::exec($req);
-        }
+        }*/
+
+
     }
 
     ?>
