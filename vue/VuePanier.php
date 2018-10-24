@@ -1,30 +1,64 @@
 <!DOCTYPE html>
 <html lang="fr">
-      <head>
-            <title>date.html</title>
-            <meta charset="utf-8">
-            <link rel="stylesheet" type="text/css" href="StylePanier.css">
-      </head>
+  <head>
+      <title>EasyShop.fr</title>
+      <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="../vue/StylePanier.css">
 
-      <header>
+      <link rel="shortcut icon" type="image/ico" href="../data/imageSite/favicon.ico"/>
+    </head>
 
-        <!-- Titre/logo -->
-            <h1>Amazonie</h1>
-        <!-- barre de recherche -->
+    <body>
+        <!-- Bouton haut de page script -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script>
+          jQuery(function(){
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 200 ) {
+                        $('#hautPage').css('right','10px');
+                        } else {
+                            $('#hautPage').removeAttr( 'style' );
+                          }
 
-         <!-- boutons d'accueil -->
+                });
+            });
+          });
+        </script>
 
-         <!-- Identifiez-vous -->
+        <header>
+          <!-- Titre/logo -->
+          <div id=conteneur1>
+              <h1>EasyShop</h1>
 
-         <!-- Panier -->
+          <!-- barre de recherche -->
+              <p id=recherche>
+                <label for="BR">Recherche : </label>
+                <input type="text" id="BR" name="BarreRecherche">
+              </p>
+          </div>
 
-
-      </header>
-
-      <body>
+           <!-- boutons d'accueil -->
+           <div id=conteneur2>
+              <p>
+                <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
+              </p>
+           </div>
+        </header>
 
         <!-- Panier Utilisateur : Liste Articles (from BD) -->
+        <footer>
+          <nav>
+              <?php
+                  foreach ($GLOBALS["panierClient"] as $value) {
+                      echo'<div>';
+                        echo $value->afficherVueArticleSingulier();
+                      echo'</div>';
+                  }
 
+               ?>
+          </nav>
+      </footer>
         <!-- Payer -->
 
         <!-- " Articles même catégories " -->
