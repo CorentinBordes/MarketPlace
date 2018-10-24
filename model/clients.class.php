@@ -5,6 +5,7 @@
         public $adresse;
         public $id;
         public $password;
+        public $admin;
     }
 
 ?>

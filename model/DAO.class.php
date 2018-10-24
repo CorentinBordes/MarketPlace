@@ -3,7 +3,7 @@
     require_once('../model/categorie.class.php');
     require_once('../model/article.class.php');
     require_once('../model/clients.class.php');
-    require_once('../model/panier.class.php')
+    require_once('../model/panier.class.php');
 
     // Creation de l'unique objet DAO
     $dao = new DAO();
@@ -20,7 +20,7 @@
         function __construct() {
             try {
                 $this->db= new PDO($this->database);
-            } catch(PDOException$e){
+            } catch(PDOException $e){
                 die("erreur de connexion:".$e->getMessage());
             }
         }

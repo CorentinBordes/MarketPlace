@@ -25,7 +25,7 @@ CREATE TABLE clients (
 );
 
 CREATE TABLE panier (
-	id varchar(100),
+	id varchar(100) PRIMARY KEY,
 	listeObjet INTEGER,
 	idClient varchar(100),
 	refArticle INTEGER,
