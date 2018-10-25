@@ -56,13 +56,31 @@
             return $result;
         }
 
-
+        //renvoie true si le password et l'id correspondent dans la base de donnée
         function verifIdentification($id,$password) {
             $req="select * from clients where password=\"$password\" and \"$id\"=id;";
             $sth=$this->db->query($req);
             $resultFetch=$sth->fetchAll(PDO::FETCH_CLASS,'clients');
             return isset($resultFetch[0]);
         }
+
+        //renvoie true si un compte est existant, faux si il n'existe pas
+        function verifClientExistant($id) {
+            $req="select * from clients where \"$id\"=id;";
+            $sth=$this->db->query($req);
+            $resultFetch=$sth->fetchAll(PDO::FETCH_CLASS,'clients');
+            return isset($resultFetch[0]);
+        }
+
+
+        //Fonction permettant de creer un client dans la base de donnee
+        function seCreerUnCompte($nom,$prenom,$adresse,$id,$password) {
+            $req="INSERT INTO clients VALUES (\"$nom\",\"$prenom\",\"$adresse\",\"$id\",\"$password\",\"false\");";
+            print($req."\n");
+            $this->db->exec($req);
+        }
+        //Ex commande sql supprimer un compte : delete from 'clients' where nom='Bordes';
+
 
         function getPanier($idClient): array {
             $req="Select * from panier where \"$idClient\"=idClient;";

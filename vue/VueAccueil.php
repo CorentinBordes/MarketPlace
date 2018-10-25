@@ -52,6 +52,7 @@ require_once('../vue/function.vue.php');
                 echo '<a href="../controleur/seDeconnecter.ctrl.php">Se Deconnecter</a>';
             }else{
                 echo'<a href="../controleur/afficherSIndentifier.ctrl.php"> Identifiez-vous ! </a>';
+                echo'<a href="../controleur/seCreerUnCompte.ctrl.php"> Se Creer Un Compte ! </a>';
             }
         ?>
         </div>
