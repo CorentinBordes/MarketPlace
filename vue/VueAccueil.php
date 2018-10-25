@@ -36,16 +36,20 @@ require_once('../vue/function.vue.php');
 
         <!-- barre de recherche -->
             <p id=recherche>
-              <label for="BR">Recherche : </label>
-              <input type="text" id="BR" name="BarreRecherche">
+              <form class="" action="ResultatRecherche.ctrl.php" method="post">
+                  <label for="BR">Recherche : </label>
+                  <input type="text" id="BR" name="BarreRecherche">
+                  <input type="submit" value="Search">
+              </form>
+
             </p>
         </div>
 
          <!-- boutons d'accueil -->
          <div id=conteneur2>
-            <p>
+
                 <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
-            </p>
+
          <?php
             if(isset($_SESSION["idClient"])){
                 echo '<a href="../controleur/afficherPanier.ctrl.php?"> Panier</a>';

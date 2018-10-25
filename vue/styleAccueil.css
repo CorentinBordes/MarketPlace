@@ -73,7 +73,10 @@ h1{
   flex-wrap: nowrap;
   background-color: #32CD32;
   color : #31333D;
+
 }
+
+
 
 section{
   display: flex;
