@@ -1,4 +1,11 @@
 <?php
+
+function afficherbando($article): string {
+    //fonction qui renvoie le code html pour le bandeau de toutes les pages du site
+    return $result;
+}
+
+
 function afficherVueArticleSingulier($article,$idClient= NULL): string {
     //var_dump($article->image);
     $result='<img src="../data/img/'.$article->image.'" alt="image correspondant a l\'objet">';

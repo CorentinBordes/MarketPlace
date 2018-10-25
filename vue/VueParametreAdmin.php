@@ -7,6 +7,7 @@ require_once('../vue/function.vue.php');
             <title>EasyShop.fr</title>
             <meta charset="utf-8">
             <link rel="stylesheet" type="text/css" href="../vue/styleAccueil.css">
+
             <link rel="shortcut icon" type="image/ico" href="../data/imageSite/favicon.ico"/>
       </head>
 
@@ -35,7 +36,7 @@ require_once('../vue/function.vue.php');
 
         <!-- barre de recherche -->
             <p id=recherche>
-              <form class="" action="resultatRecherche.ctrl.php" method="post">
+              <form class="" action="ResultatRecherche.ctrl.php" method="post">
                   <label for="BR">Recherche : </label>
                   <input type="text" id="BR" name="BarreRecherche">
                   <input type="submit" value="Search">
@@ -65,43 +66,24 @@ require_once('../vue/function.vue.php');
       </header>
 
       <footer>
-          <nav>
-              <?php
-                  foreach ($GLOBALS["categories"] as $value) {
-                      echo'<div>';
-                        echo'<a href="afficherCategorie.ctrl.php?idCate='.$value->id.'" >'.$value->nom.'</a> <br>';
-                      echo'</div>';
-                  }
+          <table>
+              <tr>
+                  <th>Nom</th><th>Prenom</th><th>Adresse</th><th>id</th><th>Administrateur</th><th>Suppression ?</th>
+              </tr>
+              <?php foreach ($GLOBALS['clients'] as $value) {
+                  echo '<tr>';
+                  echo '<td>'.$value->nom.'</td>'.'<td>'.$value->prenom.'</td>'.'<td>'.$value->adresse.'</td>'.'<td>'.$value->id.'</td>'.'<td>'.$value->administrateur.'</td>';
+                  echo'<td>';
+                  echo '<form action="suppresionClientParAdministrateur.ctrl.php" method="post">
+                      <input type="hidden" name="id" value="'.$value->id.'">
+                      <input type="submit" value="Supprimer">
+                      </form>';
+                  echo'</td>';
+                  echo '</tr>';
 
-               ?>
-          </nav>
+              } ?>
+          </table>
 
-
-            <section>
-                <!-- liste de tout les produits -->
-
-                      <!-- afficher des produits "tendances" -->
-                <?php
-
-                  foreach ($GLOBALS["articlesEnReduction"] as $value) {
-                      echo '<article>';
-                      if(isset($_SESSION['idClient'])){
-                          echo afficherVueArticleSingulier($value,$_SESSION['idClient']);
-                      }else{
-                          echo afficherVueArticleSingulier($value);
-                      }
-
-                      echo'</article>';
-                  }
-                    // image/nom/prix toutes les contraintes
-
-
-                 ?>
-            </section>
-
-            <div id="hautPage">
-              <a href="#top"><img src="../data/imageSite/hautPage.jpg"/></a>
-            </div>
       </footer>
           <!-- panel gauche avec les catégories -->
 

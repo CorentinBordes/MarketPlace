@@ -72,15 +72,35 @@
             return isset($resultFetch[0]);
         }
 
+        //renvoie true si le client est administrateur
+        function verifClientAdmin($id) {
+            $req="select * from clients where \"$id\"=id;";
+            $sth=$this->db->query($req);
+            $resultFetch=$sth->fetchAll(PDO::FETCH_CLASS,'clients');
+            return $resultFetch[0]->administrateur;
+        }
 
         //Fonction permettant de creer un client dans la base de donnee
         function seCreerUnCompte($nom,$prenom,$adresse,$id,$password) {
             $req="INSERT INTO clients VALUES (\"$nom\",\"$prenom\",\"$adresse\",\"$id\",\"$password\",\"false\");";
-            print($req."\n");
+            $this->db->exec($req);
+        }
+
+        function supprimerUnCompte($id) {
+            $req="DELETE FROM \"clients\" where id=\"$id\";";
             $this->db->exec($req);
         }
         //Ex commande sql supprimer un compte : delete from 'clients' where nom='Bordes';
 
+        function getClients(): array {
+            $req="Select * from clients;";
+            $sth=$this->db->query($req);
+            $result=$sth->fetchAll(PDO::FETCH_CLASS,'clients');
+            foreach ($result as $value) {                       //on cache les mots de passe
+                $value->password=null;
+            }
+            return $result;
+        }
 
         function getPanier($idClient): array {
             $req="Select * from panier where \"$idClient\"=idClient;";
@@ -101,6 +121,12 @@
             $this->db->exec($req);
         }
 
+        function rechercheArticle($motARechercher): array {
+            $req="select * from article where intitulé LIKE \"%$motARechercher%\" OR info LIKE \"%$motARechercher%\";";
+            $sth=$this->db->query($req);
+            $result=$sth->fetchAll(PDO::FETCH_CLASS,'article');
+            return $result;
+        }
 
     }
 

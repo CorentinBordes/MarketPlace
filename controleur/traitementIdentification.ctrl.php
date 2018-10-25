@@ -6,6 +6,7 @@
     $boolIdentification=$dao->verifIdentification($id,$password);
     if($boolIdentification){ //personne presente dans la table client
         $_SESSION['idClient']=$id;
+        $_SESSION['administrateur']=$dao->verifClientAdmin($id);
         include('../controleur/afficherAccueil.ctrl.php');
     }else{
         include('../vue/VueEchecDeLAuthentification.php');
