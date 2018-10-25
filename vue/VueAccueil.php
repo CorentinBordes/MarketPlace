@@ -44,22 +44,17 @@ require_once('../vue/function.vue.php');
          <!-- boutons d'accueil -->
          <div id=conteneur2>
             <p>
-                <?php
-                    if(isset($GLOBALS["identificateur"])){
-                        echo '<a href="../controleur/afficherAccueil.ctrl.php?idClient='.$GLOBALS["identificateur"].'">Accueil</a>'; //On a pas eu le temps de le faire en methode post
-                    }else{
-                        echo'<a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>';
-                    }
-                ?>
-
+                <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
             </p>
          <?php
-            if(isset($GLOBALS["identificateur"])){
-                echo '<a href="afficherPanier.ctrl.php?idClient='.$GLOBALS["identificateur"].'"> Panier</a>';
+            if(isset($_SESSION["idClient"])){
+                echo '<a href="../controleur/afficherPanier.ctrl.php?"> Panier</a>';
+                echo '<a href="../controleur/seDeconnecter.ctrl.php">Se Deconnecter</a>';
             }else{
                 echo'<a href="../controleur/afficherSIndentifier.ctrl.php"> Identifiez-vous ! </a>';
             }
         ?>
+        </div>
       </header>
 
       <footer>
@@ -83,10 +78,8 @@ require_once('../vue/function.vue.php');
 
                   foreach ($GLOBALS["articlesEnReduction"] as $value) {
                       echo '<article>';
-                      if(isset($GLOBALS["identificateur"])){
-                          echo afficherVueArticleSingulier($value,$GLOBALS["identificateur"]);
-                      }elseif (isset($_GET['idClient'])) {
-                          echo afficherVueArticleSingulier($value,$_GET['idClient']);
+                      if(isset($_SESSION['idClient'])){
+                          echo afficherVueArticleSingulier($value,$_SESSION['idClient']);
                       }else{
                           echo afficherVueArticleSingulier($value);
                       }

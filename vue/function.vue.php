@@ -10,7 +10,7 @@ function afficherVueArticleSingulier($article,$idClient= NULL): string {
         $prixCal = $article->prix * (1-($article->reduction/100));
         $result .=  '<p>Prix : '.$prixCal.'</p>';
         if($idClient==NULL){
-            $result .=  '<form action="../controleur/afficherSIndentifier.php" method="post">
+            $result .=  '<form action="../controleur/afficherSIndentifier.ctrl.php" method="post">
                         Nombre :<br>
                         <input type="text" name="nombreDArticle" value="1"><br>
                         <input type="hidden" name="refArticle" value="'.$article->ref.'">

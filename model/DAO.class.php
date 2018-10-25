@@ -79,7 +79,6 @@
 
         //Quand le client commande il faut vider le panier
         function viderLePanier($idClient) {
-            var_dump($this);
             $req="Delete from panier where idClient=\"$idClient\";";
             $this->db->exec($req);
         }

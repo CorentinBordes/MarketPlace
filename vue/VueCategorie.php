@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+require_once('../vue/function.vue.php');
+ ?>
 <html lang="fr">
       <head>
             <title>date.html</title>
@@ -25,7 +28,11 @@
           <?php
             foreach ($GLOBALS["categorie"] as $value) {
                 echo '<article>';
-                echo $value->afficherVueArticleSingulier();
+                if(isset($_SESSION['idClient'])){
+                    echo afficherVueArticleSingulier($value,$_SESSION['idClient']);
+                }else{
+                    echo afficherVueArticleSingulier($value);
+                }
                 echo'</article>';
             }
            ?>

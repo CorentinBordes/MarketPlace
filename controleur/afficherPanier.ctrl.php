@@ -1,6 +1,8 @@
 <?php
+    if(!isset($_SESSION)){
+        session_start();
+    }
     include_once("../model/DAO.class.php");
-    $idClient=$_GET["idClient"];
-    $GLOBALS["panierClient"]= $dao->getPanier($idClient);
+    $GLOBALS["panierClient"]= $dao->getPanier($_SESSION["idClient"]);
     include('../vue/VuePanier.php');
  ?>

@@ -45,6 +45,7 @@ require_once('../vue/function.vue.php');
            <div id=conteneur2>
               <p>
                 <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
+                <a href="../controleur/commander.ctrl.php">Commander</a>
               </p>
            </div>
         </header>
