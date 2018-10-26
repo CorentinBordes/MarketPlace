@@ -82,13 +82,27 @@
 
         //Fonction permettant de creer un client dans la base de donnee
         function seCreerUnCompte($nom,$prenom,$adresse,$id,$password) {
-            $req="INSERT INTO clients VALUES (\"$nom\",\"$prenom\",\"$adresse\",\"$id\",\"$password\",\"false\");";
-            $this->db->exec($req);
+            $req= "insert into clients values( :nom , :prenom , :adresse , :id , :password ,\"false\");";
+            $stmt =$this->db->prepare($req);
+            $stmt->bindParam(":nom",$nom);
+            $stmt->bindParam(':prenom',$prenom);
+            $stmt->bindParam(':adresse',$adresse);
+            $stmt->bindParam(':id',$id);
+            $stmt->bindParam(':password',$password);
+            $stmt->execute();
+            //version sans requete preparée
+            /*$req="INSERT INTO clients VALUES (\"$nom\",\"$prenom\",\"$adresse\",\"$id\",\"$password\",\"false\");";
+            $this->db->exec($req);*/
         }
 
         function supprimerUnCompte($id) {
-            $req="DELETE FROM \"clients\" where id=\"$id\";";
-            $this->db->exec($req);
+            $req= "DELETE FROM \"clients\" where id= :id;";
+            $stmt =$this->db->prepare($req);
+            $stmt->bindParam(':id',$id);
+            $stmt->execute();
+            //version sans requete preparée
+            /*$req="DELETE FROM \"clients\" where id=\"$id\";";
+            $this->db->exec($req);*/
         }
         //Ex commande sql supprimer un compte : delete from 'clients' where nom='Bordes';
 
@@ -110,15 +124,27 @@
         }
 
         //fonction d'ajout d'un produit dans le panier
-        function ajouterPanier($produit,$idClient) {
-            $req="INSERT INTO panier VALUES ((Select max(id)+1 from panier),0,\"$idClient\",$produit);";
-            $this->db->exec($req);
+        function ajouterPanier($produit,$id) {
+            $req= "INSERT INTO panier VALUES ((Select max(id)+1 from panier),0, :id , :produit );";
+            $stmt =$this->db->prepare($req);
+            $stmt->bindParam(':id',$id);
+            $stmt->bindParam(':produit',$produit);
+            $stmt->execute();
+            //version sans requete preparée
+            // $req="INSERT INTO panier VALUES ((Select max(id)+1 from panier),0,\"$id\",$produit);";
+            // $this->db->exec($req);
         }
 
         //Quand le client commande il faut vider le panier
-        function viderLePanier($idClient) {
-            $req="Delete from panier where idClient=\"$idClient\";";
-            $this->db->exec($req);
+        function viderLePanier($id) {
+            $req= "Delete from panier where idClient=  :id ;";
+            print($req);
+            $stmt =$this->db->prepare($req);
+            $stmt->bindParam(':id',$id);
+            $stmt->execute();
+            // version sans requete preparée
+            // $req="Delete from panier where idClient=\"$idClient\";";
+            // $this->db->exec($req);
         }
 
         function rechercheArticle($motARechercher): array {
