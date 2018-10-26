@@ -7,7 +7,6 @@
 
       <link rel="shortcut icon" type="image/ico" href="../data/imageSite/favicon.ico"/>
 </head>
-
 <body>
   <!-- Bouton haut de page script -->
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
@@ -25,36 +24,7 @@
       });
     });
   </script>
-
-<header>
-  <!-- Titre/logo -->
-  <div id=conteneur1>
-      <h1>EasyShop</h1>
-
-  </div>
-
-   <!-- boutons d'accueil -->
-   <div id=conteneur2>
-      <p>
-          <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
-      </p>
-  </div>
-</header>
-      <header>
-
-        <!-- Titre/logo -->
-            <h1>Amazonie</h1>
-        <!-- barre de recherche -->
-
-         <!-- boutons d'accueil -->
-
-         <!-- Identifiez-vous -->
-
-         <!-- Panier -->
-
-
-      </header>
-
+  <?php include_once('../vue/VueBandeauSite.php') ?>
       <body>
           <fieldset>
               <form class="" action="../controleur/traitementIdentification.ctrl.php" method="post">

@@ -9,20 +9,7 @@ require_once('../vue/function.vue.php');
             <link rel="stylesheet" type="text/css" href="StyleCatégorie.css">
       </head>
 
-      <header>
-
-        <!-- Titre/logo -->
-            <h1>Amazonie</h1>
-        <!-- barre de recherche -->
-
-         <!-- boutons d'accueil -->
-
-         <!-- Identifiez-vous -->
-
-         <!-- Panier -->
-
-
-      </header>
+      <?php include_once('../vue/VueBandeauSite.php') ?>
 
       <body>
           <?php

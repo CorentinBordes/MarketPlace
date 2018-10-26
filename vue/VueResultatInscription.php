@@ -6,6 +6,7 @@
 
     </head>
     <body>
+        <?php include_once('../vue/VueBandeauSite.php') ?>
         <h1><?php echo $GLOBALS['resultatInscription'];  ?></h1>
         <p>Retour au site:</p>
         <a href="../controleur/afficherAccueil.ctrl.php">cliquez ici</a>

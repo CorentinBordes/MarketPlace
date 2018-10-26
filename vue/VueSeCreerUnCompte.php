@@ -29,22 +29,7 @@ require_once('../vue/function.vue.php');
           });
         </script>
 
-        <header>
-          <!-- Titre/logo -->
-          <div id=conteneur1>
-              <h1>EasyShop</h1>
-
-          <!-- barre de recherche -->
-
-          </div>
-
-           <!-- boutons d'accueil -->
-           <div id=conteneur2>
-              <p>
-                <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
-              </p>
-           </div>
-        </header>
+        <?php include_once('../vue/VueBandeauSite.php') ?>
 
         <!-- Panier Utilisateur : Liste Articles (from BD) -->
         <footer>
