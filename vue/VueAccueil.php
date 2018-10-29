@@ -10,6 +10,8 @@
 
       <body>
 
+        <?php include_once('../vue/VueBandeauSite.php') ?>
+
         <!-- Bouton haut de page script -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script>
@@ -25,8 +27,6 @@
             });
           });
         </script>
-
-        <?php include_once('../vue/VueBandeauSite.php') ?>
 
       <footer>
           <nav>
@@ -52,13 +52,14 @@
                       }
                       echo'</article>';
                   }
-                    // image/nom/prix toutes les contraintes
+
                  ?>
             </section>
+
             <div id="hautPage">
               <a href="#top"><img src="../data/imageSite/hautPage.jpg"/></a>
             </div>
+            
       </footer>
-          <!-- panel gauche avec les catégories -->
     </body>
 </html>

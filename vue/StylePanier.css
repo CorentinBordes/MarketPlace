@@ -1,11 +1,21 @@
+img{
+    max-width: 200px;
+    height: auto;
+
+}
+article{
+    text-align: center;
+}
+
 h1{
   color : white;
 }
 
-#recherche {
-  color : white;
+h3{
+  color: white;
 }
 
+/* CSS bandeau haut de page */
 #conteneur1 {
   display: flex;
   background-color: #31333D;
@@ -15,6 +25,7 @@ h1{
   font-family: sans-serif;
 }
 
+/* CSS bandeau haut de page */
 #conteneur2 {
   display: flex;
   flex-wrap: nowrap;
@@ -22,9 +33,44 @@ h1{
   color : #31333D;
 }
 
+#conteneur2>a{
+  width: 200px;
+  height: 50px;
+  text-decoration: none;
+  color: white;
+  background-color: #31333D;
+  border : 2px solid grey;
+  display: block;
+  font-size: 120%;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#conteneur2>a:hover{
+  text-decoration: none;
+  color: #31333D;
+  background-color: white;
+}
+
 #hautPage{
   position: fixed;
   bottom : 10px;
   right: -100px;
   opacity: 0.5;
+}
+
+section{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* CSS article en reduction */
+section>article{
+  margin : 15px;
+  width: 380px;
+  height: 380px;
+  border: solid 4px #31333D;
+  border-radius: 5px;
+  border-style: ridge;
 }
