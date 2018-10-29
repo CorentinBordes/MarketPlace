@@ -1,11 +1,5 @@
 <?php
 
-function afficherbando($article): string {
-    //fonction qui renvoie le code html pour le bandeau de toutes les pages du site
-    return $result;
-}
-
-
 function afficherVueArticleSingulier($article,$idClient= NULL): string {
     //var_dump($article->image);
     $result='<img src="../data/img/'.$article->image.'" alt="image correspondant a l\'objet">';
@@ -13,6 +7,7 @@ function afficherVueArticleSingulier($article,$idClient= NULL): string {
     $result .=  '<p>'.$article->info.'</p>';
     if($article->reduction==0){
         $result .=  '<p>Prix : '.$article->prix.'</p>';
+        formulaireAjouterAuPanier($article->ref,$idClient);
     }else{
         $prixCal = $article->prix * (1-($article->reduction/100));
         $result .=  '<p>Prix : '.$prixCal.'</p>';
@@ -34,6 +29,28 @@ function afficherVueArticleSingulier($article,$idClient= NULL): string {
                         </form>';
         }
 
+    }
+    return $result;
+}
+//A REPARER
+function formulaireAjouterAuPanier($RefArticle,$idClient=NULL): string {
+    if($idClient==NULL){
+        $idClient=0;
+        $result .=  '<form action="../controleur/afficherSIndentifier.ctrl.php" method="post">
+                    Nombre :<br>
+                    <input type="text" name="nombreDArticle" value="1"><br>
+                    <input type="hidden" name="refArticle" value="'.$RefArticle.'">
+
+                    <input type="submit" value="Ajouter au panier">
+                    </form>';
+    }else{
+        $result .=  '<form action="../controleur/ajouterAuPanier.php" method="post">
+                    Nombre :<br>
+                    <input type="text" name="nombreDArticle" value="1"><br>
+                    <input type="hidden" name="refArticle" value="'.$RefArticle.'">
+                    <input type="hidden" name="idClient" value="'.$idClient.'">
+                    <input type="submit" value="Ajouter au panier">
+                    </form>';
     }
     return $result;
 }
