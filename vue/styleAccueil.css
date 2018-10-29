@@ -12,53 +12,38 @@ footer{
     flex: wrap;
 }
 
+/* CSS fond orange menu catégorie */
 footer>nav{
   background-color: #FF8C00;
 }
 
-footer>nav>div{
+/* CSS menu des catégories */
+footer>nav>div>a{
   width: 160px;
   height: 20px;
   text-decoration: none;
   color: white;
   background-color: #31333D;
   border : 2px solid grey;
+  display: block;
 }
 
-footer>nav>div:hover{
+/* CSS menu des catégories passage souris */
+footer>nav>div>a:hover{
   text-decoration: none;
   color: #31333D;
   background-color: white;
 }
-
-/*footer>nav>div>a:hover{
-  text-decoration: none;
-  color: #31333D;
-  background-color: white;
-}*/
-
-/*a{
-    text-decoration: none;
-    color: white;
-    background-color: #31333D;
-    margin: 5px;
-}*/
-
-/*a:hover{
-    text-decoration: none;
-    color: #31333D;
-    background-color: white;
-}*/
-
 
 h1{
   color : white;
 }
 
-#recherche {
-  color : white;
+h3{
+  color: white;
 }
 
+/* CSS bandeau haut de page */
 #conteneur1 {
   display: flex;
   background-color: #31333D;
@@ -68,25 +53,44 @@ h1{
   font-family: sans-serif;
 }
 
+/* CSS bandeau haut de page */
 #conteneur2 {
   display: flex;
   flex-wrap: nowrap;
   background-color: #32CD32;
   color : #31333D;
-
 }
 
+#conteneur2>a{
+  width: 200px;
+  height: 50px;
+  text-decoration: none;
+  color: white;
+  background-color: #31333D;
+  border : 2px solid grey;
+  display: block;
+  font-size: 120%;
+  text-align: center;
+  font-family: sans-serif;
+}
 
+#conteneur2>a:hover{
+  text-decoration: none;
+  color: #31333D;
+  background-color: white;
+}
 
 section{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
+
+/* CSS article en reduction */
 section>article{
   margin : 15px;
-  width: 300px;
-  height: 300px;
+  width: 380px;
+  height: 380px;
   border: solid 4px #31333D;
   border-radius: 5px;
   border-style: ridge;

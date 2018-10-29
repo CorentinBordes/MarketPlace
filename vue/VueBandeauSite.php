@@ -5,20 +5,19 @@
     <h1>EasyShop</h1>
 
 <!-- barre de recherche -->
-    <p id=recherche>
+    <h3>
       <form class="" action="resultatRecherche.ctrl.php" method="post">
-          <label for="BR">Recherche : </label>
+          <label for="BR">Rechercher : </label>
           <input type="text" id="BR" name="BarreRecherche">
           <input type="submit" value="Search">
       </form>
-
-    </p>
+    </h3>
 </div>
 
  <!-- boutons d'accueil -->
  <div id=conteneur2>
 
-        <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
+      <a href="../controleur/afficherAccueil.ctrl.php">Accueil</a>
 
  <?php
     if(isset($_SESSION["idClient"])){

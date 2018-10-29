@@ -7,7 +7,9 @@
             <link rel="stylesheet" type="text/css" href="../vue/styleAccueil.css">
             <link rel="shortcut icon" type="image/ico" href="../data/imageSite/favicon.ico"/>
       </head>
+
       <body>
+
         <!-- Bouton haut de page script -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script>
@@ -23,13 +25,15 @@
             });
           });
         </script>
+
         <?php include_once('../vue/VueBandeauSite.php') ?>
+
       <footer>
           <nav>
               <?php
                   foreach ($GLOBALS["categories"] as $value) {
                       echo'<div>';
-                        echo'<a href="afficherCategorie.ctrl.php?idCate='.$value->id.'" >'.$value->nom.'</a> <br>';
+                        echo'<a href="afficherCategorie.ctrl.php?idCate='.$value->id.'" >'.$value->nom.'</a>';
                       echo'</div>';
                   }
                ?>
