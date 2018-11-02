@@ -26,9 +26,27 @@ CREATE TABLE clients (
 
 CREATE TABLE panier (
 	id varchar(100) PRIMARY KEY,
-	listeObjet INTEGER,
+	quantite INTEGER,
 	idClient varchar(100),
 	refArticle INTEGER,
 	FOREIGN KEY(idClient) REFERENCES clients(id),
 	FOREIGN KEY(refArticle) REFERENCES article(ref)
 );
+
+CREATE TABLE commande (
+	numCommande INTEGER PRIMARY KEY,
+	idClient varchar(100),
+	dateCommande date,
+	FOREIGN KEY(idClient) REFERENCES clients(id)
+);
+
+CREATE TABLE ligneDeCommande (
+	numCommande INTEGER,
+	numLigne INTEGER,
+	refArticle INTEGER,
+	quantite INTEGER,
+	PRIMARY KEY(numCommande,numLigne),
+	FOREIGN KEY(numCommande) REFERENCES commande(numCommande),
+	FOREIGN KEY(refArticle) REFERENCES panier(refArticle),
+	FOREIGN KEY(quantite) REFERENCES panier(quantite)
+)

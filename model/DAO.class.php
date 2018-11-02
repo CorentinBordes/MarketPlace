@@ -135,16 +135,37 @@
             // $this->db->exec($req);
         }
 
-        //Quand le client commande il faut vider le panier
-        function viderLePanier($id) {
-            $req= "Delete from panier where idClient=  :id ;";
-            print($req);
-            $stmt =$this->db->prepare($req);
-            $stmt->bindParam(':id',$id);
-            $stmt->execute();
-            // version sans requete preparée
-            // $req="Delete from panier where idClient=\"$idClient\";";
-            // $this->db->exec($req);
+        //corentin,
+        /*Quand le client commande il faut:
+        - ajouter une commande dans la table commande,
+        - ajouter chaque produit dans la table ligne de commande en ne faisant pas de doublon,
+        - vider le panier (version requete preparee),
+        */
+        function commander($id) {
+            //ne pas toucher aux commentaires
+            //version suppresion du panier sans ajout dans la commande et ligne de commande
+
+                //version requete preparee
+                // $req= "Delete from panier where idClient=  :id ;";
+                // print($req);
+                // $stmt =$this->db->prepare($req);
+                // $stmt->bindParam(':id',$id);
+                // $stmt->execute();
+
+                // version sans requete preparée
+                // $req="Delete from panier where idClient=\"$idClient\";";
+                // $this->db->exec($req);
+        }
+
+
+        //Cette fonction renvoie tous les Numeros et dates de commande d'un client
+        function getNumCommande($id){
+
+        }
+
+        //renvoie tous les articles d'une commande 
+        function getCommande($numCommande){
+
         }
 
         function rechercheArticle($motARechercher): array {
@@ -153,6 +174,8 @@
             $result=$sth->fetchAll(PDO::FETCH_CLASS,'article');
             return $result;
         }
+
+
 
     }
 
