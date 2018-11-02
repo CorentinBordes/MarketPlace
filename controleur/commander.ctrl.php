@@ -1,6 +1,6 @@
 <?php
     session_start();
     include_once('../model/DAO.class.php');
-    $dao->viderLePanier($_SESSION['idClient']);
+    $dao->commander($_SESSION['idClient']);
     include('../controleur/afficherPanier.ctrl.php');
  ?>

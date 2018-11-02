@@ -31,7 +31,9 @@ require_once('../vue/function.vue.php');
             });
           });
         </script>
-
+        <section>
+            <a href="../controleur/commander.ctrl.php"> Commander</a>
+        </section>
         <!-- Panier Utilisateur : Liste Articles (from BD) -->
         <section>
             <?php
