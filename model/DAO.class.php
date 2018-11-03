@@ -143,8 +143,32 @@
         */
         function commander($id) {
             //ne pas toucher aux commentaires
-            //version suppresion du panier sans ajout dans la commande et ligne de commande
 
+            // requete pour ajouter une commande dans la table commande.
+            $req1= " INSERT INTO commande VALUES ((Select max(numCommande)+1 from commande), :id, /* fonction date d aujourd hui */);";
+            $stmt= $this->db->prepare($req1);
+            $stmt->bindParam(':id',$id);
+            $stmt->execute();
+
+            // requete pour ajouter chaque produit dans la table ligne de commande en ne faisant pas de doublon.
+
+            $req2_1 = "SELECT * from panier WHERE idclient = $id ; ";
+            $sth=$this->db->query($req2_1);
+            $result=$sth->fetchAll(PDO::FETCH_CLASS,'panier');
+            foreach ($result as $value) {
+                $req2 = "INSERT INTO ligneDeCommande VALUES ((Select max(numCommande) from commande), /* Qu'est-ce que le numéro de ligne ? */, $value->refArticle, $value->quantite)"
+                $this->db->exec($req2);
+            }
+
+            //  requete pour vider le panier.
+
+            $req3 = "DELETE FROM panier WHERE idClient= :id ;";
+            $stmt = $this->db->prepare($req3);
+            $stmt->bindParam(':id',$id);
+            $stmt->execute();
+
+
+            //version suppresion du panier sans ajout dans la commande et ligne de commande
                 //version requete preparee
                 // $req= "Delete from panier where idClient=  :id ;";
                 // print($req);
@@ -163,7 +187,7 @@
 
         }
 
-        //renvoie tous les articles d'une commande 
+        //renvoie tous les articles d'une commande
         function getCommande($numCommande){
 
         }
@@ -175,11 +199,7 @@
             return $result;
         }
 
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 32c65b6e09e72e14d1d2b530e050cee028953cfa
 
     }
 
