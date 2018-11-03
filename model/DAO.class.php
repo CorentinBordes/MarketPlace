@@ -144,7 +144,7 @@
         function commander($id) {
 
             // requete pour ajouter une commande dans la table commande.
-            $req1= " INSERT INTO commande VALUES ((Select max(numCommande)+1 from commande), :id, /* fonction date d aujourd hui */);";
+            $req1= " INSERT INTO commande VALUES ((Select max(numCommande)+1 from commande), :id, SELECT date('now'));";
             $stmt= $this->db->prepare($req1);
             $stmt->bindParam(':id',$id);
             $stmt->execute();
@@ -153,8 +153,10 @@
 
             $result= getPanier(id);
             foreach ($result as $value) {
-                $req2 = "INSERT INTO ligneDeCommande VALUES ((Select max(numCommande) from commande), /* Qu'est-ce que le numéro de ligne ? */, $value->refArticle, $value->quantite)"
+                $i = 0;
+                $req2 = "INSERT INTO ligneDeCommande VALUES ((Select max(numCommande) from commande), $i , $value->refArticle, $value->quantite)"
                 $this->db->exec($req2);
+                $i++;
             }
 
             //  requete pour vider le panier.
@@ -181,18 +183,18 @@
 
         //Cette fonction renvoie tous les Numeros et dates de commande d'un client
         function getNumCommande($id){
-          $req="SELECT numCommande,dateCommande FROM commande WHERE idClient = :id ;";
-          $stmt= $this->db->prepare($req);
-          $stmt->bindParam(':id',$id);
-          $stmt->execute();
+          $req="SELECT numCommande,dateCommande FROM commande WHERE idClient = $id ;";
+          $sth=$this->db->query($req);
+          $result=$sth->fetchAll(PDO::FETCH_CLASS,'commande');
+          return $result;
         }
 
         //renvoie tous les articles d'une commande
         function getCommande($numCommande){
-            $req="SELECT refArticle FROM ligneDeCommande WHERE numCommande = :numCommande ;";
-            $stmt= $this->db->prepare($req);
-            $stmt->bindParam(':numCommande',$numCommande);
-            $stmt->execute();
+            $req="SELECT refArticle FROM ligneDeCommande WHERE numCommande = $numCommande ;";
+            $sth=$this->db->query($req);
+            $result=$sth->fetchAll(PDO::FETCH_CLASS,'ligneDeCommande');
+            return $result;
         }
 
         function rechercheArticle($motARechercher): array {
