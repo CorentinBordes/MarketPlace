@@ -142,7 +142,6 @@
         - vider le panier (version requete preparee),
         */
         function commander($id) {
-            //ne pas toucher aux commentaires
 
             // requete pour ajouter une commande dans la table commande.
             $req1= " INSERT INTO commande VALUES ((Select max(numCommande)+1 from commande), :id, /* fonction date d aujourd hui */);";
@@ -152,9 +151,7 @@
 
             // requete pour ajouter chaque produit dans la table ligne de commande en ne faisant pas de doublon.
 
-            $req2_1 = "SELECT * from panier WHERE idclient = $id ; ";
-            $sth=$this->db->query($req2_1);
-            $result=$sth->fetchAll(PDO::FETCH_CLASS,'panier');
+            $result= getPanier(id);
             foreach ($result as $value) {
                 $req2 = "INSERT INTO ligneDeCommande VALUES ((Select max(numCommande) from commande), /* Qu'est-ce que le numéro de ligne ? */, $value->refArticle, $value->quantite)"
                 $this->db->exec($req2);
@@ -184,21 +181,26 @@
 
         //Cette fonction renvoie tous les Numeros et dates de commande d'un client
         function getNumCommande($id){
-
+          $req="SELECT numCommande,dateCommande FROM commande WHERE idClient = :id ;";
+          $stmt= $this->db->prepare($req);
+          $stmt->bindParam(':id',$id);
+          $stmt->execute();
         }
 
         //renvoie tous les articles d'une commande
         function getCommande($numCommande){
-
+            $req="SELECT refArticle FROM ligneDeCommande WHERE numCommande = :numCommande ;";
+            $stmt= $this->db->prepare($req);
+            $stmt->bindParam(':numCommande',$numCommande);
+            $stmt->execute();
         }
 
         function rechercheArticle($motARechercher): array {
-            $req="select * from article where intitulé LIKE \"%$motARechercher%\" OR info LIKE \"%$motARechercher%\";";
+            $req="SELECT * FROM article WHERE intitulé LIKE \"%$motARechercher%\" OR info LIKE \"%$motARechercher%\";";
             $sth=$this->db->query($req);
             $result=$sth->fetchAll(PDO::FETCH_CLASS,'article');
             return $result;
         }
-
 
 
     }
