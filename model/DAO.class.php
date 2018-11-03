@@ -154,7 +154,7 @@
             $result= getPanier(id);
             foreach ($result as $value) {
                 $i = 0;
-                $req2 = "INSERT INTO ligneDeCommande VALUES ((Select max(numCommande) from commande), $i , $value->refArticle, $value->quantite)"
+                $req2 = "INSERT INTO ligneDeCommande VALUES ((Select max(numCommande) from commande), $i , $value->refArticle, $value->quantite)";
                 $this->db->exec($req2);
                 $i++;
             }
