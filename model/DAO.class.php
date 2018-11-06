@@ -135,23 +135,16 @@
             // $this->db->exec($req);
         }
 
-        //corentin,
-        /*Quand le client commande il faut:
-        - ajouter une commande dans la table commande,
-        - ajouter chaque produit dans la table ligne de commande en ne faisant pas de doublon,
-        - vider le panier (version requete preparee),
-        */
-        function commander($id) {
 
+        function commander($id) {
             // requete pour ajouter une commande dans la table commande.
-            $req1= " INSERT INTO commande VALUES ((Select max(numCommande)+1 from commande), :id, SELECT date('now'));";
-            $stmt= $this->db->prepare($req1);
+            $req1="INSERT INTO commande VALUES ((Select max(numCommande)+1 from commande where idClient = :id ), :id , \"date(\'now\')\");";
+            $stmt =$this->db->prepare($req1);
             $stmt->bindParam(':id',$id);
             $stmt->execute();
 
             // requete pour ajouter chaque produit dans la table ligne de commande en ne faisant pas de doublon.
-
-            $result= getPanier(id);
+            $result= getPanier($id);    //////////////////////////////////////////////////////////////////////////////////////////////j'en suis a la
             foreach ($result as $value) {
                 $i = 0;
                 $req2 = "INSERT INTO ligneDeCommande VALUES ((Select max(numCommande) from commande), $i , $value->refArticle, $value->quantite);";
@@ -160,7 +153,6 @@
             }
 
             //  requete pour vider le panier.
-
             $req3 = "DELETE FROM panier WHERE idClient= :id ;";
             $stmt = $this->db->prepare($req3);
             $stmt->bindParam(':id',$id);
