@@ -1,0 +1,11 @@
+pour recreer la base executer ces commandes une par une apres avoir ouvert la base sqlite (commande shell: sqlite3 DB.db) 
+
+.read create.sql
+.separator |
+.import categories.txt categorie
+.import articles.txt article
+.import clients.txt clients
+.import panier.txt panier
+.import panier.txt panier
+.import commandes.txt commande
+.import listeDeCommande.txt ligneDeCommande

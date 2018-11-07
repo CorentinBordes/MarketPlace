@@ -125,7 +125,7 @@
 
         //fonction d'ajout d'un produit dans le panier
         function ajouterPanier($produit,$id) {
-            $req= "INSERT INTO panier VALUES ((Select max(id)+1 from panier),0, :id , :produit );";
+            $req= "INSERT INTO panier VALUES (1, :id , :produit );";
             $stmt =$this->db->prepare($req);
             $stmt->bindParam(':id',$id);
             $stmt->bindParam(':produit',$produit);
@@ -138,17 +138,18 @@
 
         function commander($id) {
             // requete pour ajouter une commande dans la table commande.
-            $req1="INSERT INTO commande VALUES ((Select max(numCommande)+1 from commande where idClient = :id ), :id , \"date(\'now\')\");";
+            $req1="INSERT INTO commande VALUES ((Select max(numCommande)+1 from commande where idClient = :id ), :id , :dateDuJour);";
             $stmt =$this->db->prepare($req1);
             $stmt->bindParam(':id',$id);
+            $date=(string)date("Y-m-d");
+            $stmt->bindParam(':dateDuJour',$date);
             $stmt->execute();
 
             // requete pour ajouter chaque produit dans la table ligne de commande en ne faisant pas de doublon.
-            $result= getPanier($id);    //////////////////////////////////////////////////////////////////////////////////////////////j'en suis a la
-            foreach ($result as $value) {
-                $i = 0;
-                $req2 = "INSERT INTO ligneDeCommande VALUES ((Select max(numCommande) from commande), $i , $value->refArticle, $value->quantite);";
-                $this->db->exec($req2);
+            $panier= $this->getPanier($id);
+            $i = 0;
+            foreach ($panier as $Article) {
+                $dao->ajouterALaTableLigneDeCommande($Article,$ligne);
                 $i++;
             }
 
@@ -170,6 +171,15 @@
                 // version sans requete preparée
                 // $req="Delete from panier where idClient=\"$idClient\";";
                 // $this->db->exec($req);
+        }
+
+        function ajouterALaTableLigneDeCommande($Article,$ligne){
+            $req2 = "INSERT INTO ligneDeCommande VALUES ((Select max(numCommande) from commande), :ligne , :refArticle, :quantite);";
+            $stmt =$this->db->prepare($req1);
+            $stmt->bindParam(':ligne',$ligne);
+            $stmt->bindParam(':refArticle',$Article->refArticle);
+            $stmt->bindParam(':quantite',$Article->quantite);
+            $stmt->execute();
         }
 
 

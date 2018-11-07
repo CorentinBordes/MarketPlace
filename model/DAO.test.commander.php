@@ -3,10 +3,14 @@
     $id = "emile";
 
 // affichage de la table panier de "emile" avant la fonction commander().
+    $produit = 3;
+    $dao->ajouterPanier($produit,$id);
+    $produit = 4;
+    $dao->ajouterPanier($produit,$id);
 
-    var_dump($dao->getPanier($id));
+    //var_dump($dao->getPanier($id));
     $dao->commander($id);
-
+    //var_dump($dao->getPanier($id));
 
 //affichage de la table commande de "emile" avant la fonction commander().
 

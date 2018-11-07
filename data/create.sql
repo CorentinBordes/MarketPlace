@@ -19,13 +19,12 @@ CREATE TABLE clients (
 	nom varchar(100),
 	prenom varchar(100),
 	adresse varchar(100),
-	id varchar(100) PRIMARY KEY,
+	id varchar(100) PRIMARY KEY,  --creer une fonction qui verifie qu'il n'exitse pas deux fois au moment de la creation
 	password varchar(100),
 	administrateur boolean
 );
 
-CREATE TABLE panier (
-	id varchar(100) PRIMARY KEY,
+CREATE TABLE panier (--creer une fonction qui fait quantite plus 1 si deja au panier
 	quantite INTEGER,
 	idClient varchar(100),
 	refArticle INTEGER,

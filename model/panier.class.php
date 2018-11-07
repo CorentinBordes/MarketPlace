@@ -1,9 +1,7 @@
 <?php
     class panier {
-        public $id;
-        public $listeObjet;
+        public $quantite;
         public $idClient;
         public $refArticle;
     }
-
 ?>
