@@ -4,6 +4,8 @@
     require_once('../model/article.class.php');
     require_once('../model/clients.class.php');
     require_once('../model/panier.class.php');
+    require_once('../model/commande.class.php');
+    require_once('../model/ligneDeCommande.class.php');
 
     // Creation de l'unique objet DAO
     $dao = new DAO();
@@ -135,6 +137,13 @@
             // $this->db->exec($req);
         }
 
+        function ajouterALaTableLigneDeCommande($Article){
+            $req2 = "INSERT INTO ligneDeCommande VALUES ((Select max(numCommande) from commande), :refArticle, :quantite);";
+            $stmt =$this->db->prepare($req2);
+            $stmt->bindParam(':refArticle',$Article->refArticle);
+            $stmt->bindParam(':quantite',$Article->quantite);
+            $stmt->execute();
+        }
 
         function commander($id) {
             // requete pour ajouter une commande dans la table commande.
@@ -147,10 +156,9 @@
 
             // requete pour ajouter chaque produit dans la table ligne de commande en ne faisant pas de doublon.
             $panier= $this->getPanier($id);
-            $i = 0;
             foreach ($panier as $Article) {
-                $dao->ajouterALaTableLigneDeCommande($Article,$ligne);
-                $i++;
+                var_dump($Article);
+                $this->ajouterALaTableLigneDeCommande($Article);
             }
 
             //  requete pour vider le panier.
@@ -173,25 +181,26 @@
                 // $this->db->exec($req);
         }
 
-        function ajouterALaTableLigneDeCommande($Article,$ligne){
-            $req2 = "INSERT INTO ligneDeCommande VALUES ((Select max(numCommande) from commande), :ligne , :refArticle, :quantite);";
-            $stmt =$this->db->prepare($req1);
-            $stmt->bindParam(':ligne',$ligne);
-            $stmt->bindParam(':refArticle',$Article->refArticle);
-            $stmt->bindParam(':quantite',$Article->quantite);
-            $stmt->execute();
-        }
+
 
 
         //Cette fonction renvoie tous les Numeros et dates de commande d'un client
         function getNumCommande($id){
-          $req="SELECT numCommande,dateCommande FROM commande WHERE idClient = $id ;";
+          $req="SELECT * FROM commande WHERE idClient = \"$id\" ;";
           $sth=$this->db->query($req);
           $result=$sth->fetchAll(PDO::FETCH_CLASS,'commande');
           return $result;
         }
 
+        function getLigneDeCommandeDUneCommande($numCommande){
+          $req="SELECT * FROM ligneDeCommande WHERE numCommande = \"$numCommande\" ;";
+          $sth=$this->db->query($req);
+          $result=$sth->fetchAll(PDO::FETCH_CLASS,'ligneDeCommande');
+          return $result;
+        }
+
         //renvoie tous les articles d'une commande
+
         function getCommande($numCommande){
             $req="SELECT refArticle FROM ligneDeCommande WHERE numCommande = $numCommande ;";
             $sth=$this->db->query($req);

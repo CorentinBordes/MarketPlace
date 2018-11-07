@@ -49,6 +49,7 @@ function afficherVueArticleSingulier($article,$idClient= NULL): string {
     }
     return $result;
 }
+
 //A REPARER
 function formulaireAjouterAuPanier($RefArticle,$idClient=NULL): string {
 

@@ -41,10 +41,9 @@ CREATE TABLE commande (
 
 CREATE TABLE ligneDeCommande (
 	numCommande INTEGER,
-	numLigne INTEGER,
 	refArticle INTEGER,
 	quantite INTEGER,
-	PRIMARY KEY(numCommande,numLigne),
+	PRIMARY KEY(numCommande,refArticle),
 	FOREIGN KEY(numCommande) REFERENCES commande(numCommande),
 	FOREIGN KEY(refArticle) REFERENCES panier(refArticle),
 	FOREIGN KEY(quantite) REFERENCES panier(quantite)
