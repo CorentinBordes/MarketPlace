@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<?php
-require_once('../vue/function.vue.php');
- ?>
+
+<!--On récupère les fonctions à utilisés-->
+<?php require_once('../vue/function.vue.php');?>
+
 <html lang="fr">
   <head>
       <title>EasyShop.fr</title>
       <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="../vue/StylePanier.css">
 
+      <!--Affichage petit icône en haut de page-->
       <link rel="shortcut icon" type="image/ico" href="../data/imageSite/favicon.ico"/>
     </head>
 
     <body>
+
         <!-- Bouton haut de page script -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
         <script>
@@ -29,6 +32,7 @@ require_once('../vue/function.vue.php');
           });
         </script>
 
+        <!--Affichage du bandeau du site-->
         <?php include_once('../vue/VueBandeauSite.php') ?>
 
         <!-- Panier Utilisateur : Liste Articles (from BD) -->
@@ -49,9 +53,6 @@ require_once('../vue/function.vue.php');
                 </form>
             </fieldset>
       </footer>
-        <!-- Payer -->
-
-        <!-- " Articles même catégories " -->
 
     </body>
 </html>

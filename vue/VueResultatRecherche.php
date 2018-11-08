@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<?php
-require_once('../vue/function.vue.php');
- ?>
+
+<!--On récupère les fonctions à utilisés-->
+<?php require_once('../vue/function.vue.php');?>
+
  <html lang="fr">
        <head>
              <title>EasyShop.fr</title>
              <meta charset="utf-8">
              <link rel="stylesheet" type="text/css" href="../vue/styleRésultatRecherche.css">
+
+             <!--Affichage petit icône en haut de page-->
              <link rel="shortcut icon" type="image/ico" href="../data/imageSite/favicon.ico"/>
        </head>
 
        <body>
 
+         <!--Affichage du bandeau du site-->
          <?php include_once('../vue/VueBandeauSite.php') ?>
 
          <!-- Bouton haut de page script -->
@@ -31,6 +35,7 @@ require_once('../vue/function.vue.php');
            });
          </script>
 
+         <!--Affichage des articles repondant à la recherche-->
          <section>
             <?php
             foreach ($GLOBALS['articleRecherchés'] as $value) {
@@ -45,6 +50,8 @@ require_once('../vue/function.vue.php');
             }
             ?>
          </section>
+
+         <!--Affichage du bouton de haut de page-->
          <div id="hautPage">
            <a href="#top"><img src="../data/imageSite/hautPage.jpg"/></a>
          </div>
