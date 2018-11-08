@@ -19,7 +19,7 @@ CREATE TABLE clients (
 	nom varchar(100),
 	prenom varchar(100),
 	adresse varchar(100),
-	id varchar(100) PRIMARY KEY,  --creer une fonction qui verifie qu'il n'exitse pas deux fois au moment de la creation
+	id varchar(100) PRIMARY KEY,
 	password varchar(100),
 	administrateur boolean
 );

@@ -127,14 +127,33 @@
 
         //fonction d'ajout d'un produit dans le panier
         function ajouterPanier($produit,$id) {
-            $req= "INSERT INTO panier VALUES (1, :id , :produit );";
-            $stmt =$this->db->prepare($req);
-            $stmt->bindParam(':id',$id);
-            $stmt->bindParam(':produit',$produit);
-            $stmt->execute();
+            if(verifArticleDejaDansLePanier($produit,$id)){
+                $req="Update panier set quantite=((select quantite from panier where idClient=\"$id\" and refArticle=\"$produit\")+1) where idClient=\"$id\" and refArticle=\"$produit\";";
+            }else{
+                $req= "INSERT INTO panier VALUES (1, :id , :produit );";
+                $stmt =$this->db->prepare($req);
+                $stmt->bindParam(':id',$id);
+                $stmt->bindParam(':produit',$produit);
+                $stmt->execute();
+            }
             //version sans requete preparée
             // $req="INSERT INTO panier VALUES ((Select max(id)+1 from panier),0,\"$id\",$produit);";
             // $this->db->exec($req);
+        }
+
+        function verifArticleDejaDansLePanier($refProduit,$id){
+            $req="Select * from panier where \"$id\"=idClient;";
+            $sth=$this->db->query($req);
+            $result=$sth->fetchAll(PDO::FETCH_CLASS,'panier');
+            $bool=false;
+            foreach ($result as $ArticleDuPanier) {
+                if($bool!=true){
+                    if($ArticleDuPanier->refArticle==$refProduit){
+                        $bool=true;
+                    }
+                }
+            }
+            return $bool;
         }
 
         function ajouterALaTableLigneDeCommande($Article){

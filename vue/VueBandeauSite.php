@@ -24,7 +24,7 @@
         echo '<a href="../controleur/afficherPanier.ctrl.php?"> Mon Panier</a>';
         echo '<a href="../controleur/afficherCommandes.ctrl.php?"> Mes Commandes</a>';
         echo '<a href="../controleur/seDeconnecter.ctrl.php">Se Deconnecter</a>';
-        if($_SESSION['administrateur']){
+        if($_SESSION['administrateur']=='true'){
             echo '<a href="../controleur/afficherParametreAdmin.ctrl.php">Parametres administrateur</a>';
         }
     }else{

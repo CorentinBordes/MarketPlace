@@ -4,6 +4,7 @@
     }
     include_once('../model/DAO.class.php');
     $GLOBALS['CommandesClient']= $dao->getNumCommande($_SESSION['idClient']);//vecteur d'objets de type commande
+    $resultat=null;
     foreach ($GLOBALS['CommandesClient'] as $CommandeClient) {
         $GLOBALS['ligneDeCommande']= $dao->getLigneDeCommandeDUneCommande($CommandeClient->numCommande);
         foreach ($GLOBALS['ligneDeCommande'] as $ligneDeCommande) {

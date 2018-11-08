@@ -20,7 +20,7 @@ require_once('../vue/function.vue.php');
 
                 foreach ($GLOBALS['CommandesClient'] as $value) {
                     echo'<article>';
-                    echo'<a href="">'.$value->numCommande.'</a><p>'.$value->dateCommande.'</p>';
+                    echo'<p>Ma commande N° '.$value->numCommande.'  Datant du : '.$value->dateCommande.' Est constitué de :</p>';
                        foreach ($GLOBALS['ArticleCommande'][$value->numCommande] as  $value2) {
                            foreach ($value2 as $key => $value3) {
                                echo afficherVueArticleSingulierPanier($value3);
