@@ -127,8 +127,14 @@
 
         //fonction d'ajout d'un produit dans le panier
         function ajouterPanier($produit,$id) {
-            if(verifArticleDejaDansLePanier($produit,$id)){
-                $req="Update panier set quantite=((select quantite from panier where idClient=\"$id\" and refArticle=\"$produit\")+1) where idClient=\"$id\" and refArticle=\"$produit\";";
+            if($this->verifArticleDejaDansLePanier($produit,$id)){
+                $req="Update panier set quantite=(select quantite +1 from panier where idClient=\":id\" and refArticle=\":produit\") where idClient=\":id\" and refArticle=\":produit\";";
+
+                $stmt =$this->db->prepare($req);
+                var_dump($stmt);
+                $stmt->bindParam(':id',$id);
+                $stmt->bindParam(':produit',$produit);
+                $stmt->execute();
             }else{
                 $req= "INSERT INTO panier VALUES (1, :id , :produit );";
                 $stmt =$this->db->prepare($req);
