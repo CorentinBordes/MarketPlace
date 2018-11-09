@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<?php
-require_once('../vue/function.vue.php');
- ?>
+
+<!--On récupère les fonctions à utilisés-->
+<?php require_once('../vue/function.vue.php');?>
+
 <html lang="fr">
   <head>
       <title>EasyShop.fr</title>
       <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="../vue/StylePanier.css">
+
+      <!--Affichage petit icône en haut de page-->
       <link rel="shortcut icon" type="image/ico" href="../data/imageSite/favicon.ico"/>
     </head>
 
     <body>
 
-
+        <!--Affichage du bandeau du site-->
         <?php include_once('../vue/VueBandeauSite.php') ?>
 
         <!-- Bouton haut de page script -->
@@ -31,9 +34,12 @@ require_once('../vue/function.vue.php');
             });
           });
         </script>
+
+        <!--Affichage Bouton Commander-->
         <section>
             <a href="../controleur/commander.ctrl.php"> Commander</a>
         </section>
+
         <!-- Panier Utilisateur : Liste Articles (from BD) -->
         <section>
             <?php
@@ -46,12 +52,11 @@ require_once('../vue/function.vue.php');
                 }
             ?>
       </section>
-        <!-- Payer -->
 
-        <!-- " Articles même catégories " -->
-
+        <!--Affichage Bouton du haut de page-->
         <div id="hautPage">
           <a href="#top"><img src="../data/imageSite/hautPage.jpg"/></a>
         </div>
+        
     </body>
 </html>

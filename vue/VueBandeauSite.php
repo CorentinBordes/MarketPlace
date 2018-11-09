@@ -1,5 +1,5 @@
 <header>
-<!-- <header>
+
 <!-- Titre/logo -->
 <div id=conteneur1>
     <h1>EasyShop</h1>
