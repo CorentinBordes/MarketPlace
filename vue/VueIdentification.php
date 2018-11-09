@@ -29,9 +29,9 @@
           <fieldset>
               <form class="" action="../controleur/traitementIdentification.ctrl.php" method="post">
                   <label >identifiant : </label>
-                  <input type="text" name="id" value="emile" required="required">
+                  <input type="text" name="id"  required="required">
                   <label >mot de passe : </label>
-                  <input type="password" name="password" value="emiliobe" required="required">
+                  <input type="password" name="password" required="required">
                   <input type="submit" value="valider">
               </form>
           </fieldset>
